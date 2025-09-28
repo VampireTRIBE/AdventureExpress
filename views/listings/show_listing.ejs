@@ -1,0 +1,62 @@
+<%- include("../includes/css_link.ejs") %>
+    <title>listing : <%= list.title %></title>
+  </head>
+  <body>
+    <%- include("../includes/navbar.ejs") %>
+    <main class="show-main">
+      <%- include("../includes/flash.ejs") %>
+      <h1>Listing - <%= list.title %></h1>
+      <div class="listing-content">
+         <div class="cards">
+            <img src="<%= list.image.url %>" alt="<%= list.filename %>">
+            <div class="listing-details">
+               <h2 class="l-d-title"><%= list.title %></h2>
+               <h2 class="l-d-title">@owner : <%= list.owner.username %></h2>
+               <p class="l-d-description"><%= list.description %></p>
+               <div class="details-p-l-c">
+                  <p class="price">&#8377; <%= list.price %></p>
+                  <p class="location"><%= list.location %></p>
+                  <p class="country"><%= list.country %></p>
+                  <p class="avgRating"><span><%= list.avgRating %> / 5</span></p>
+            </div>
+            </div>
+         </div>
+      </div>
+      <div class="buttons">
+         <a class="back show-button" href="/listings">Back</a>
+         <% if (curr_user && list.owner._id.equals(curr_user._id)) { %>
+          
+            <form class="edit" action="/listings/<%= list._id %>/edit" method="get">
+               <input class="show-button" type="submit" value="Edit">
+            </form>
+            <form class="delete" action="/listings/<%= list._id %>?_method=DELETE" method="post">
+               <input class="show-button" type="submit" value="delete">
+            </form>
+            
+         <% } %>
+      </div>
+
+      <% if (curr_user) { %>
+         
+         <form class="reviews f-validate" action="/listings/<%= list._id %>/review" method="post" novalidate>
+            <div class="r-review">
+               <label for="comment">Review : </label>
+               <textarea name="review[comment]" id="comment" placeholder="Enter Review" required></textarea>
+            </div>
+            <div class="r-rating">
+               <label for="rating">Rating : </label>
+               <input type="number" name="review[rating]", id="comment" placeholder="1 - 5" min="1" max="5" required>
+               <button class="show-button" type="submit">Submit</button>
+            </div>   
+         </form>
+         
+         <% } %>
+            
+         <%- include("../includes/reviews.ejs") %>
+         
+    </main>
+    <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/js_link.ejs") %>
+   <script src="/validation/client_side/form.js"></script>
+  </body>
+</html>

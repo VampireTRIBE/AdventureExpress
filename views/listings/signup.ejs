@@ -1,0 +1,42 @@
+<%- include("../includes/css_link.ejs") %>
+    <title>SignUp</title>
+  </head>
+<body>
+<%- include("../includes/navbar.ejs") %>
+<main class="show-signup">
+   <%- include("../includes/flash.ejs") %>
+  <h1>SignUp to Adventure Express</h1>
+  <form class="s-s-from f-validate" action="/signup" method="post" novalidate>
+    <div>
+      <div class="s-s-f-head">
+         <label for="firstName">First Name : </label>
+         <input type="text" name="newUser[firstName]" id="firstName" required />
+      </div>
+      <div class="s-s-f-head">
+         <label for="lastName">Last Name : </label>
+         <input type="text" name="newUser[lastName]" id="lastName" required/>
+      </div>
+    </div>
+    <div>
+      <label for="username">Username : </label>
+      <input type="text" name="newUser[username]" id="username" required/>
+    </div>
+    <div>
+      <label for="email">Email : </label>
+      <input type="email" name="newUser[email]" id="email" required/>
+    </div>
+    <div>
+      <label for="password">Password : </label>
+      <input type="password" name="password" id="password" required />
+    </div>
+    <div class="s-s-f-buttons">
+      <a class="btn" href="/listings">Cancel</a>
+      <input class="btn" type="submit" value="SignUp">
+    </div>
+  </form>
+</main>
+    <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/js_link.ejs") %>
+    <script src="/validation/client_side/form.js"></script>
+  </body>
+</html>

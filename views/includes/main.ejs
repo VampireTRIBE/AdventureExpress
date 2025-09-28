@@ -1,0 +1,20 @@
+<main class="main">
+  <%- include("../includes/flash.ejs") %>
+  <h1>All Listings</h1>
+  <div class="listing-cards">
+    <% for (const list of all_listings) { %>
+    <a class="cards" href="/listings/<%= list._id %>">
+      <img src="<%= list.image.url %>" alt="<%= list.filename %>" />
+      <div class="cards-details">
+        <p class="c-d-title"><%= list.title %></p>
+        <div>
+          <p class="c-d-price">&#8377; <%= list.price %></p>
+          <p class="c-d-avgRating">
+            Avg Rating : <span><%= list.avgRating %> / 5</span>
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</main>

@@ -1,0 +1,88 @@
+<%- include("../includes/css_link.ejs") %>
+<title>New Listng</title>
+</head>
+  <body>
+    <%- include("../includes/navbar.ejs") %>
+    <main class="new-main">
+      <h1>Add New Listing</h1>
+      <form class="a-listing f-validate" action="/listings" method="post" novalidate>
+        <div class="l-title">
+          <label for="title">Title : </label>
+          <input
+            type="text"
+            name="listing[title]"
+            id="title"
+            placeholder="Enter Title"
+            required />
+        </div>
+
+        <div class="l-description">
+          <label for="description">Description : </label>
+          <textarea name="listing[description]" id="description" placeholder="Enter Description" required></textarea
+          >
+        </div>
+
+        <div class="l-img">
+          <div class="l-img-foot">
+            <label for="imgurl">Image URL : </label>
+              <input
+                type="text"
+                id="imgurl"
+                name="listing[image][url]"
+                placeholder="Enter URL"
+                required />
+          </div>
+          <div class="img-foot-file">
+              <label for="img-foot-filename">Filename : </label>
+              <input
+                id="img-foot-filename"
+                type="text"
+                name="listing[image][filename]"
+                placeholder="filename"
+                value="listingimg" required />
+          </div>
+        </div>
+
+        <div class="l-price">
+          <label for="price">Price : </label>
+          <input
+            type="number"
+            id="price"
+            name="listing[price]"
+            placeholder="Enter price"
+            required min="100" />
+        </div>
+
+        <div class="l-location">
+          <label for="location">Location : </label>
+          <input
+            type="text"
+            id="location"
+            name="listing[location]"
+            placeholder="Enter location"
+            required />
+        </div>
+
+        <div class="l-country">
+          <label for="country">Country : </label>
+          <input
+            type="text"
+            id="country"
+            name="listing[country]"
+            placeholder="Enter country"
+            required />
+        </div>
+
+        <div class="l-buttons">
+          <a class="l-buttons-items" href="/listings">Cancel</a>
+          <button class="l-buttons-items" id="l-buttons-submit" type="submit">
+            Add New Listing
+          </button>
+        </div>
+      </form>
+    </main>
+    <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/js_link.ejs") %>
+    <script src="/validation/client_side/form.js"></script>
+  </body>
+</html>

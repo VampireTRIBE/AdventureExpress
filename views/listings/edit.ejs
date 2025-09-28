@@ -1,0 +1,56 @@
+<%- include("../includes/css_link.ejs") %>
+    <title>Edit - <%= listing_edit.title %> </title>
+  </head>
+<body>
+      <%- include("../includes/navbar.ejs") %>
+      <%- include("../includes/flash.ejs") %>
+      <main class="new-main">
+      <h1>Edit Listing</h1>
+      <form class="a-listing f-validate" action="/listings/<%= listing_edit._id %>?_method=PATCH" method="post" novalidate>
+
+        <div class="l-title">
+          <label for="title">Title : </label>
+          <input type="text" name="listing[title]" id="title" value="<%= listing_edit.title %>" required />
+        </div>
+        
+        <div class="l-description">
+          <label for="description">Description : </label>
+          <textarea name="listing[description]" id="description" required><%= listing_edit.description %></textarea>
+        </div>
+        
+        <div class="l-img">
+          <div class="l-img-foot">
+            <label for="imgurl">Image URL : </label>
+              <input type="text" id="imgurl" name="listing[image][url]" value="<%= listing_edit.image.url %>" required />
+            </div>
+              <div class="img-foot-file">
+                <label for="img-foot-filename">Filename : </label>
+              <input id="img-foot-filename" type="text" name="listing[image][filename]" value="<%= listing_edit.image.filename %>" />
+            </div>
+          </div>
+        <div class="l-price">
+          <label for="price">Price : </label>
+          <input type="number" id="price" name="listing[price]" value="<%= listing_edit.price %>" required min="100" />
+        </div>
+        
+        <div class="l-location">
+          <label for="location">Location : </label>
+          <input type="text" id="location" name="listing[location]" value="<%= listing_edit.location %>" required />
+        </div>
+        
+        <div class="l-country">
+          <label for="country">Country : </label>
+          <input type="text" id="country" name="listing[country]" value="<%= listing_edit.country %>" required />
+        </div>
+
+        <div class="l-buttons">
+          <a class="l-buttons-items" href="/listings/<%= listing_edit._id %>">Cancel</a>
+          <button class="l-buttons-items" id="l-buttons-submit" type="submit">Edit Listing</button>
+        </div>
+      </form>
+    </main>
+    <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/js_link.ejs") %>
+    <script src="/validation/client_side/form.js"></script>
+  </body>
+</html>

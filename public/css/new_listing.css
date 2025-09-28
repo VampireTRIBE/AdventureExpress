@@ -1,0 +1,176 @@
+.new-main {
+  width: 100%;
+  min-height: 90vh;
+  padding: 5rem 1rem 5rem;
+  background-color: #0b3a53;
+}
+
+.new-main > h1 {
+  text-align: center;
+  padding: 1rem 0rem 1rem;
+  color: #f5f7f9;
+}
+
+.new-main > .a-listing {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  padding: 1rem;
+  background-color: #f5f7f9;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.new-main > .a-listing > div {
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.new-main > .a-listing > div > input,
+.new-main > .a-listing > .l-img > div > input {
+  flex: 1;
+  height: 2rem;
+  padding: 8px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+.new-main > .a-listing > div > textarea {
+  padding: 8px;
+  height: 5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  resize: none;
+}
+
+.new-main > .a-listing > .l-img > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  flex-direction: column;
+}
+
+.new-main > .a-listing > .l-img > .img-foot-file {
+  flex-direction: row;
+}
+
+.new-main > .a-listing > .l-buttons {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.new-main > .a-listing > .l-buttons > .l-buttons-items {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.new-main > .a-listing > .l-buttons > .l-buttons-items:hover {
+  border: 2px solid lightgray;
+  box-shadow: 3px 2px 1px darkgray;
+  background-color: #f2994a;
+}
+
+/* form validtaions */
+.f-validate.was-validated input:invalid,
+.f-validate.was-validated textarea:invalid {
+  border: 3px solid #f2994a;
+}
+
+.f-validate.was-validated input:valid,
+.f-validate.was-validated textarea:valid {
+  border: 3px solid #1e9e6a;
+}
+
+@media screen and (min-width: 450px) {
+  .new-main > .a-listing > div {
+    flex-direction: row;
+  }
+  .new-main > .a-listing > div > label {
+    width: 30%;
+  }
+  .new-main > .a-listing > .l-img > div {
+    width: 100%;
+    flex-direction: row;
+  }
+  .new-main > .a-listing > .l-img > div > label {
+    width: 30%;
+    flex-direction: row;
+  }
+  .new-main > .a-listing > div > textarea {
+    flex: 1;
+    height: 8rem;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .new-main > .a-listing > div > label {
+    width: 20%;
+  }
+  .new-main > .a-listing > .l-img > div > label {
+    width: 20%;
+  }
+  .new-main > .a-listing > .l-price > input,
+  .new-main > .a-listing > .l-country > input,
+  .new-main > .a-listing > .l-img > .img-foot-file > input,
+  .new-main > .a-listing > .l-location > input {
+    flex: 0;
+  }
+}
+
+@media screen and (min-width: 1030px) {
+  .new-main {
+    margin: auto auto;
+    width: 75%;
+    padding: 5rem 3rem 5rem;
+  }
+  .new-main > .a-listing {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .new-main > .a-listing > div > input,
+  .new-main > .a-listing > .l-img > div > input {
+    height: 2.5rem;
+    font-size: 1.4rem;
+    border-radius: 15px;
+  }
+
+  .new-main > .a-listing > div > textarea {
+    padding: 10px;
+    height: 8rem;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    resize: none;
+  }
+
+  .new-main > .a-listing > div > label {
+    width: 30%;
+  }
+  .new-main > .a-listing > .l-img > div > label {
+    width: 30%;
+  }
+
+  .new-main > .a-listing > .l-buttons {
+    justify-content: space-around;
+  }
+
+  .new-main > .a-listing > .l-buttons > .l-buttons-items {
+    padding: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .new-main {
+    width: 50%;
+  }
+}

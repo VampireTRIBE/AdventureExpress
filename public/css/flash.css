@@ -1,0 +1,31 @@
+.flash-alert {
+  margin: auto auto;
+  width: 100%;
+  padding: 10px;
+  height: fit-content;
+  border: 2px solid black;
+  border-radius: 1rem;
+  background-color: #f5f7f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flash-alert img {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 450px) {
+  .flash-alert {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1030px) {
+   .flash-alert {
+     width: 45%;
+   }
+}
+

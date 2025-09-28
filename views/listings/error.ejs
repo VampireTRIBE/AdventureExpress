@@ -1,0 +1,21 @@
+<%- include("../includes/css_link.ejs") %>
+    <link rel="stylesheet" href="/error.css">
+    <title>ERROR</title>
+  </head>
+<body>
+    <%- include("../includes/navbar.ejs") %>
+    <div class="error-box">
+      <div class="error-main">
+         <h1>ERROR</h1>
+         <div class="e-m-message">
+            Status : <%= err.status %> 
+         </div>
+         <div class="e-m-message">
+           Message : <%= err.message %> 
+         </div>
+      </div>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/js_link.ejs") %>
+  </body>
+</html>

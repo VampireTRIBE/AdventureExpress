@@ -1,0 +1,68 @@
+.main {
+  width: 100%;
+  min-height: 90vh;
+  padding: 5rem 1rem 5rem;
+  background-color: #0b3a53;
+}
+.main > h1 {
+  text-align: center;
+  color: #f5f7f9;
+  padding: 1rem 0rem 1rem;
+}
+
+.main > .listing-cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.main > .listing-cards > .cards {
+  width: 350px;
+  height: 350px;
+  background-color: #f5f7f9;
+  border: 5px solid #a3b1b6;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.8rem;
+}
+
+.listing-cards > .cards > img {
+  width: 100%;
+  height: 70%;
+  border-radius: 1rem 1rem 0 0;
+}
+.listing-cards > .cards > .cards-details {
+  flex: 1;
+  padding: 1rem 0.5rem 1rem;
+}
+.cards > .cards-details > .c-d-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.cards > .cards-details > div {
+  display: flex;
+  gap: 1rem;
+}
+
+.cards > .cards-details > div > .c-d-price,
+.cards > .cards-details > div > .c-d-avgRating {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.cards > .cards-details > div > .c-d-avgRating > span {
+  padding: 2px 5px 2px 5px;
+  font-weight: bolder;
+  background-color: lightblue;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+}
+
+.main > .listing-cards > .cards:hover {
+  transform: scale(1.04);
+}

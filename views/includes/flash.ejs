@@ -1,0 +1,13 @@
+<% if (success && success.length) { %>
+<div class="flash-alert">
+  <h3 style="color: #1e9e6a"><%= success %></h3>
+  <img class="f-a-cancel" src="/cross.jpg" alt="cancel" />
+</div>
+<% } %>
+
+<% if (error && error.length) { %>
+<div class="flash-alert">
+  <h3 style="color: #d7263d"><%= error %></h3>
+  <img class="f-a-cancel" src="/cross.jpg" alt="cancel" />
+</div>
+<% } %>

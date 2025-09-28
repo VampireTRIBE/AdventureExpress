@@ -1,0 +1,33 @@
+<div class="show-reviews">
+  <div class="s-r-head">
+    <h3>Reviews</h3>
+    <span>Total : <%= list.reviews.length %></span>
+  </div>
+  <div class="review-cards">
+    <% let count=1 %> <% for (const review of list.reviews) { %> <% if
+    (count>=20) { %> <% break %> <% } %>
+    <div class="r-card">
+      <h2>@<%= review.author.username %></h2>
+      <div class="r-c-date-rating">
+        <h4>
+          Date : <%= review.createdAT.toLocaleDateString("en-US",{month:
+          "short",year: "numeric",}); %>
+        </h4>
+        <span><%= review.rating %></span>
+
+        <% if (curr_user && review.author._id.equals(curr_user._id)) { %>
+
+        <form
+          action="/listings/<%= list._id %>/review/<%=review._id %>?_method=DELETE"
+          method="post">
+          <input class="r-b-delete" type="submit" value="Delete" />
+        </form>
+        
+        <% } %>
+
+      </div>
+      <p class="r-c-comment"><%= review.comment %></p>
+    </div>
+    <% count++ %> <% } %>
+  </div>
+</div>

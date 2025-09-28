@@ -1,0 +1,146 @@
+.show-signup {
+  width: 100%;
+  min-height: 90vh;
+  padding: 5rem 1rem 5rem;
+  background-color: #0b3a53;
+}
+
+.show-signup > h1 {
+  text-align: center;
+  color: #f5f7f9;
+  padding-bottom: 1rem;
+}
+
+.show-signup > .s-s-from {
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  background-color: #f5f7f9;
+  border: 5px solid #a3b1b6;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.show-signup > .s-s-from > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.show-signup > .s-s-from .s-s-f-head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.show-signup > .s-s-from > div label {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.show-signup > .s-s-from > div input {
+  padding: 8px;
+  font-size: 1.1rem;
+  border-radius: 0.8rem;
+}
+
+.show-signup > .s-s-from .s-s-f-buttons {
+  display: flex;
+  padding: 0.5rem 1rem 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-signup > .s-s-from .s-s-f-buttons .btn {
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #f5f7f9;
+}
+
+.show-signup > .s-s-from .s-s-f-buttons .btn:hover {
+  border: 2px solid lightgray;
+  transform: scale(1.1);
+  background-color: #f2994a;
+}
+
+@media screen and (min-width: 450px) {
+  .show-signup {
+    margin: auto auto;
+    width: 90%;
+  }
+  .show-signup > .s-s-from .s-s-f-head {
+    flex-direction: row;
+  }
+  .show-signup > .s-s-from .s-s-f-head label {
+    width: 30%;
+    white-space: nowrap;
+  }
+  .show-signup > .s-s-from .s-s-f-head input {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .show-signup {
+    margin: auto auto;
+    width: 75%;
+  }
+  .show-signup > .s-s-from > div {
+    flex-direction: row;
+  }
+  .show-signup > .s-s-from > div label {
+    width: 30%;
+  }
+
+  .show-signup > .s-s-from > div input {
+    flex: 1;
+  }
+  .show-signup > .s-s-from .s-s-f-buttons .btn {
+    flex: 0;
+  }
+}
+
+@media screen and (min-width: 1030px) {
+  .show-signup {
+    margin: auto auto;
+    width: 60%;
+  }
+  .show-signup > .s-s-from .s-s-f-buttons {
+    padding: 0.5rem 8rem 1rem;
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .show-signup {
+    margin: auto auto;
+    width: 60%;
+  }
+  .show-signup > .s-s-from > div label {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .show-signup > .s-s-from > div input {
+    padding: 12px;
+    font-size: 1.5rem;
+    border-radius: 0.8rem;
+  }
+  .show-signup > .s-s-from .s-s-f-buttons .btn {
+    padding: 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: #f5f7f9;
+  }
+}

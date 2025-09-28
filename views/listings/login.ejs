@@ -1,0 +1,28 @@
+<%- include("../includes/css_link.ejs") %>
+    <title>login</title>
+  </head>
+<body>
+<%- include("../includes/navbar.ejs") %>
+<main class="show-signup">
+   <%- include("../includes/flash.ejs") %>
+  <h1>Login to Adventure Express</h1>
+  <form class="s-s-from f-validate" action="/login" method="post" novalidate>
+    <div>
+      <label for="username">Username : </label>
+      <input type="text" name="username" id="username" required/>
+    </div>
+    <div>
+      <label for="password">Password : </label>
+      <input type="password" name="password" id="password" required />
+    </div>
+    <div class="s-s-f-buttons">
+      <a class="btn" href="/listings">Cancel</a>
+      <input class="btn" type="submit" value="Login">
+    </div>
+  </form>
+</main>
+    <%- include("../includes/footer.ejs") %>
+    <%- include("../includes/js_link.ejs") %>
+    <script src="/validation/client_side/form.js"></script>
+  </body>
+</html>

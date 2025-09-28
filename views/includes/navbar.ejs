@@ -1,0 +1,39 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-togle">
+      <label for="nav-menu">
+        <img src="/menu.png" alt="menu img" />
+      </label>
+      <input type="checkbox" id="nav-menu" hidden />
+    </div>
+    <a class="nav-logo-name" href="/listings">
+      <img src="/logo.png" alt="logo" />
+      <h1>Adventure Express</h1>
+    </a>
+    <div class="nav-options">
+      <a class="n-o-listings" href="/listings">All Listings</a>
+      <a class="n-o-newlistings" href="/listings/new">New Listing</a>
+      <a class="n-o-support" href="#footer">Support</a>
+    </div>
+    <div class="user">
+      <label for="u-options">
+        <img src="/user.png" alt="user" />
+      </label>
+      <input type="checkbox" id="u-options" hidden />
+    </div>
+  </nav>
+  <div class="nav-togle-menu">
+    <a class="n-o-listings" href="/listings">All Listings</a>
+    <a class="n-o-newlistings" href="/listings/new">New Listing</a>
+    <a class="n-o-support" href="#footer">Support</a>
+  </div>
+
+  <div class="togle-user">
+    <% if (curr_user) { %>
+    <a class="t-u-login" href="/logout">LogOut</a>
+    <% } else { %>
+    <a class="t-u-signup" href="/signup">SignUp</a>
+    <a class="t-u-login" href="/login">Login</a>
+    <% } %>
+  </div>
+</header>
