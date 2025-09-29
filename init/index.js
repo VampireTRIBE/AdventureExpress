@@ -1,11 +1,14 @@
 // init_db.js
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
 const mongoose = require("mongoose");
 const Listing = require("../models/listing.js");
 const User = require("../models/users.js");
 const Review = require("../models/reviews.js");
 const init_data = require("./data.js");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/AdventureExpress";
+const MONGO_URL = process.env.ATLASDB_URL;
 
 async function database_connect() {
   await mongoose.connect(MONGO_URL);

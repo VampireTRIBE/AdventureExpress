@@ -1,9 +1,13 @@
 // pakages and port
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
 const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
@@ -12,9 +16,39 @@ let port = 3000;
 // schema models
 const user = require("./models/users.js");
 
+// connection to mongoDB database
+
+const MONGO_URL = process.env.ATLASDB_URL;
+const mongoose = require("mongoose");
+const { error } = require("console");
+async function database_connect() {
+  await mongoose.connect(MONGO_URL);
+}
+
+database_connect()
+  .then(() => {
+    console.log("DataBase Connection Sccessful...");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 // sessions
+const store = MongoStore.create({
+  mongoUrl: MONGO_URL,
+  crypto: {
+    secret: process.env.SESSION_SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+  console.log("Error in mongo sesson store ", err);
+});
+
 const sessionOptions = {
-  secret: "mysecretsession",
+  store,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -23,6 +57,7 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
+
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -38,22 +73,6 @@ passport.deserializeUser(user.deserializeUser());
 const userRoute = require("./routes/user.js");
 const listingsRoute = require("./routes/listing.js");
 const reviewsRoute = require("./routes/review.js");
-
-// connection to mongoDB database
-
-const MONGO_URL = "mongodb://127.0.0.1:27017/AdventureExpress";
-const mongoose = require("mongoose");
-async function database_connect() {
-  await mongoose.connect(MONGO_URL);
-}
-
-database_connect()
-  .then(() => {
-    console.log("DataBase Connection Sccessful...");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
 // to understand data send by client
 app.use(express.urlencoded({ extended: true }));
@@ -75,7 +94,7 @@ app.use((req, res, next) => {
   res.locals.error = req.flash("error");
   res.locals.curr_user = req.user;
   next();
-}); 
+});
 
 // for listning all requests
 app.listen(port, () => {
