@@ -11,6 +11,8 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
+const listingController = require("./controllers/listingControllers.js");
+const asyncWrap = require("./utils/error_handle/server_side/asyncwrap.js");
 let port = 3000;
 
 // schema models
@@ -103,6 +105,7 @@ app.listen(port, () => {
 
 // Diffrent Routes
 
+app.get("/", asyncWrap(listingController.index_route));
 app.use("/", userRoute);
 app.use("/listings", listingsRoute);
 app.use("/listings/:id/review", reviewsRoute);
